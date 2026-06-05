@@ -211,8 +211,9 @@
     "autoBlockOff": "✅ स्वचालित ब्लॉक अक्षम कर दिया गया।",
     "autoBlockAlready": "⚠️ स्वचालित ब्लॉक पहले से ही *{value}* सेट है।",
     "autoBlockAlreadyOff": "⚠️ स्वचालित ब्लॉक पहले से ही अक्षम है!",
-    "langSet": "✅ भाषा *अंग्रेज़ी* 🇬🇧 पर सेट की गई\n_सभी बॉट संदेश अब अंग्रेज़ी में होंगे।_",
-    "langInvalid": "❌ अमान्य भाषा। उपयोग करें: *en* (अंग्रेज़ी 🇬🇧) या *fr* (फ्रेंच 🇫🇷)\nवर्तमान: *{current}*",
+    "langSet": "✅ भाषा हिन्दी 🇮🇳 पर सेट कर दी गई है\n_बॉट के सभी संदेश हिन्दी में होंगे।_",
+
+"langInvalid": "❌ अमान्य भाषा।\nउपयोग करें:\n• en → English 🇬🇧\n• fr → Français 🇫🇷\n• cr → Créole 🇭🇹\n• es → Español 🇪🇸\n• pt → Português 🇧🇷\n• hi → हिन्दी 🇮🇳\n• si → සිංහල 🇱🇰\nवर्तमान: {current}"
     "autoReadMsgInvalid": "❌ कृपया निर्दिष्ट करें: *off*, *all*, *dm*, *groups*, या *commands*",
     "autoReadMsgOn": "✅ स्वचालित रूप से संदेश पढ़ें: *चालू* ({mode})",
     "autoReadMsgOff": "✅ स्वचालित रूप से संदेश पढ़ें: *बंद*"
