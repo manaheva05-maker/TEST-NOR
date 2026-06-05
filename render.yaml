@@ -1,0 +1,31 @@
+databases:
+  - name: inconnu-xd-db
+    plan: free
+    databaseName: inconnu_xd
+    user: inconnu
+
+services:
+  - type: web
+    name: inconnu-xd-v3
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: SESSION_ID
+        sync: false
+      - key: MODE
+        value: public
+      - key: TIME_ZONE
+        value: America/Sao_Paulo
+      - key: LANGUAGE
+        value: en
+      - key: AUTO_LIKE_STATUS
+        value: "true"
+      - key: AUTO_READ_STATUS
+        value: "true"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: inconnu-xd-db
+          property: connectionString
