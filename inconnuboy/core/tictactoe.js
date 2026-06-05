@@ -4,7 +4,7 @@ const {
     getWaitingGame,
     makeMove,
     endGame,
-} = require("./database/games");
+} = require("../store/games");
 
 const { findBestTttMove, BOT_JID } = require("./gameAI");
 
