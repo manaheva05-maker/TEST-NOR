@@ -76,15 +76,15 @@ function setupConsoleFilters() {
 setupConsoleFilters();
 
 const createContext = async (userJid, options = {}) => {
-    const botName = (await getSetting("BOT_NAME")) || "𝐆𝐈𝐅𝐓𝐄𝐃 𝐌𝐃";
+    const botName = (await getSetting("BOT_NAME")) || "INCONNU XD V3";
     const botPic =
         (await getSetting("BOT_PIC")) ||
-        "https://gitcdn.gifted.co.ke/image/AZO_image.jpg";
+        "https://files.catbox.moe/utrnuv.png";
     const newsletterJid =
         (await getSetting("NEWSLETTER_JID")) || "120363403408693274@newsletter";
     const newsletterUrl =
         (await getSetting("NEWSLETTER_URL")) ||
-        "https://whatsapp.com/channel/0029VbCpYtZLtOj5LDuj7Q1p";
+        "https://whatsapp.com/channel/0029VbC6It7K0IBkQwaKYd2J";
 
     return {
         contextInfo: {
@@ -114,10 +114,10 @@ const createContext = async (userJid, options = {}) => {
 };
 
 const createContext2 = async (userJid, options = {}) => {
-    const botName = (await getSetting("BOT_NAME")) || "𝐆𝐈𝐅𝐓𝐄𝐃 𝐌𝐃";
+    const botName = (await getSetting("BOT_NAME")) || "INCONNU XD V3";
     const botPic =
         (await getSetting("BOT_PIC")) ||
-        "https://gitcdn.gifted.co.ke/image/AZO_image.jpg";
+        "https://files.catbox.moe/utrnuv.png";
     const newsletterJid =
         (await getSetting("NEWSLETTER_JID")) || "120363403408693274@newsletter";
 
