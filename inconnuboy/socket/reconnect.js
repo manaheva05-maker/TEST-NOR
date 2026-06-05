@@ -2,7 +2,7 @@ const { Boom } = require("@hapi/boom");
 const { DisconnectReason } = require("gifted-baileys");
 const fs = require("fs-extra");
 const path = require("path");
-const { setupGroupCacheListeners } = require("./groupCache");
+const { setupGroupCacheListeners } = require("./cache");
 
 const RECONNECT_DELAY = 5000;
 const MAX_RECONNECT_ATTEMPTS = 50;
