@@ -211,8 +211,8 @@
     "autoBlockOff": "✅ Blòkaj otomatik desaktive.",
     "autoBlockAlready": "⚠️ Blòkaj otomatik deja mete an: *{value}*",
     "autoBlockAlreadyOff": "⚠️ Blòkaj otomatik deja desaktive!",
-    "langSet": "✅ Lang mete an *Angle* 🇬🇧\n_Tout mesaj bot la ap kounye a an Anglè._",
-    "langInvalid": "❌ Lang pa valab. Sèvi ak: *en* (Angle 🇬🇧) oswa *fr* (Fransè 🇫🇷)\nAktiyèlman: *{current}*",
+    "langSet": "✅ Lang mete sou Kreyòl 🇭🇹\n_Tout mesaj bot la ap an Kreyòl._",
+"langInvalid": "❌ Lang sa pa valab.\nItilize:\n• en → English 🇬🇧\n• fr → Français 🇫🇷\n• cr → Créole 🇭🇹\n• es → Español 🇪🇸\n• pt → Português 🇧🇷\n• hi → हिन्दी 🇮🇳\n• si → සිංහල 🇱🇰\nKounye a: {current}"
     "autoReadMsgInvalid": "❌ Tanpri espesifye: *off*, *all*, *dm*, *groups*, oswa *commands*",
     "autoReadMsgOn": "✅ Li mesaj otomatikman: *AKTIVE* ({mode})",
     "autoReadMsgOff": "✅ Li mesaj otomatikman: *ETE*"
