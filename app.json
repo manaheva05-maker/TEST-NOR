@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "description": "INCONNU XD V3, a Multi Device WhatsApp Bot by INCONNU BOY",
   "logo": "https://telegra.ph/file/9521e9ee2fdbd0d6f4f1c.jpg",
-  "keywords": ["inconnu-xd-v3", "gifted-baileys", "gifted-btns", "inconnu-boy"],
+  "keywords": ["inconnu-xd-v3", "inconnu-boy"],
   "success_url": "/",
   "stack": "heroku-22",
   "env": {
