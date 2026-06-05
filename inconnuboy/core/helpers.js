@@ -1,4 +1,4 @@
-const { getSetting } = require("./database/settings");
+const { getSetting } = require("./store/settings");
 
 const originalConsoleInfo = console.info;
 const originalConsoleLog = console.log;
