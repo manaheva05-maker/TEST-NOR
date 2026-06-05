@@ -141,7 +141,7 @@ gmd(
           name: 'cta_url',
           buttonParamsJson: JSON.stringify({
             display_text: lang === 'fr' ? 'Chaîne WA' : 'WaChannel',
-            url: newsletterUrl || 'https://whatsapp.com/channel/0029VbCpYtZLtOj5LDuj7Q1p'
+            url: newsletterUrl || 'https://whatsapp.com/channel/0029VbC6It7K0IBkQwaKYd2J'
           })
         }
       ],
