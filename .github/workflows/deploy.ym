@@ -1,4 +1,5 @@
-name: INCONNU XD V3 CI
+
+   name: Node.js CI
 
 on:
   push:
@@ -10,6 +11,7 @@ on:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     strategy:
@@ -17,23 +19,17 @@ jobs:
         node-version: [20.x]
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Set up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
 
-      - name: Install system dependencies (ffmpeg)
-        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+    - name: Install dependencies
+      run: npm install
 
-      - name: Install Node dependencies
-        run: npm install
-
-      - name: Verify entry point exists
-        run: test -f index.js && echo "✅ index.js found"
-
-      - name: Lint check (syntax only)
-        run: node --check index.js && echo "✅ Syntax OK"
+    - name: Start application
+      run: npm start 
+        
