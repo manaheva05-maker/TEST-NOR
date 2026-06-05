@@ -1,6 +1,6 @@
 const { DATABASE } = require('./database');
 const { DataTypes } = require('sequelize');
-const { isValidEnglishWord } = require('../dictionary');
+const { isValidEnglishWord } = require('../core/dictionary');
 
 const WcgDB = DATABASE.define('WordChainGame', {
     id: {
