@@ -1,4 +1,4 @@
-const { getSetting } = require("./database/settings");
+const { getSetting } = require("../store/settings");
 
 async function getContextInfo(mentionedJid = []) {
     const botName = await getSetting("BOT_NAME") || "INCONNU XD V3";
