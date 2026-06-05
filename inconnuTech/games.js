@@ -7,16 +7,17 @@ async (from, Gifted, conText) => {
   const { reply, react, isGroup, mek, botName, newsletterJid, lang } = conText;
   if (!isGroup) { await react('❌'); return reply(await t('games.groupOnly', {}, lang)); }
   try {
-    await react(await t('games.gameStarted', {}, lang).slice(0,2));
+    await react((await t('games.gameStarted', {}, lang)).slice(0,2));
     const res = await axios.get('https://opentdb.com/api.php?amount=1&type=multiple');
     const q = res.data?.results?.[0];
     if (!q) { await react('❌'); return reply(await t('general.tryAgain', {}, lang)); }
     const answers = [...q.incorrect_answers, q.correct_answer].sort(() => Math.random() - 0.5);
     const labels = ['A','B','C','D'];
     const options = answers.map((a,i) => `*${labels[i]}.* ${a}`).join('\n');
-    const catLbl  = lang === 'fr' ? 'Catégorie'   : 'Category';
-    const diffLbl = lang === 'fr' ? 'Difficulté'  : 'Difficulty';
-    const repLbl  = lang === 'fr' ? 'Répondez avec A, B, C ou D' : 'Reply with A, B, C or D';
+    // Utilisation des clés i18n
+    const catLbl  = await t('games.categoryLabel', {}, lang);
+    const diffLbl = await t('games.difficultyLabel', {}, lang);
+    const repLbl  = await t('games.replyOptionsLabel', {}, lang);
     await Gifted.sendMessage(from, {
       text: `🧠 *TRIVIA*\n\n❓ *${q.question.replace(/&quot;/g,'"').replace(/&#039;/g,"'")}*\n\n${options}\n\n📂 *${catLbl}:* ${q.category}\n🎯 *${diffLbl}:* ${q.difficulty}\n\n_${repLbl}_`,
       contextInfo: { forwardingScore:1, isForwarded:true, forwardedNewsletterMessageInfo:{ newsletterJid, newsletterName:botName, serverMessageId:143 } }
