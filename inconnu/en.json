@@ -211,8 +211,9 @@
     "autoBlockOff": "✅ Auto block disabled.",
     "autoBlockAlready": "⚠️ Auto block is already set to: *{value}*",
     "autoBlockAlreadyOff": "⚠️ Auto block is already disabled!",
-    "langSet": "✅ Language set to *English* 🇬🇧\n_All bot messages will now be in English._",
-    "langInvalid": "❌ Invalid language. Use: *en* (English 🇬🇧) or *fr* (French 🇫🇷)\nCurrent: *{current}*",
+    "langSet": "✅ Language set to English 🇬🇧\n_All bot messages will be in English._",
+
+"langInvalid": "❌ Invalid language.\nUse:\n• en → English 🇬🇧\n• fr → Français 🇫🇷\n• cr → Créole 🇭🇹\n• es → Español 🇪🇸\n• pt → Português 🇧🇷\n• hi → हिन्दी 🇮🇳\n• si → සිංහල 🇱🇰\nCurrent: {current}"
     "autoReadMsgInvalid": "❌ Please specify: *off*, *all*, *dm*, *groups*, or *commands*",
     "autoReadMsgOn": "✅ Auto read messages: *ON* ({mode})",
     "autoReadMsgOff": "✅ Auto read messages: *OFF*"
