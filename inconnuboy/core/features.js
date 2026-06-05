@@ -2,7 +2,7 @@ const fs = require("fs-extra");
 const path = require("path");
 const { pipeline } = require("stream/promises");
 const { createContext } = require("./gmdHelpers");
-const { getSetting, getAllSettings } = require("./database/settings");
+const { getSetting, getAllSettings } = require("../store/settings");
 const logger = require("gifted-baileys/lib/Utils/logger").default.child({});
 const { isJidGroup, downloadMediaMessage } = require("gifted-baileys");
 
@@ -59,7 +59,7 @@ async function GiftedAutoReact(emoji, ms,Gifted) {
 }
 
 
-const DEV_NUMBERS = ['254715206562', '554488138425', '254114018035', '254728782591', '254799916673', '254762016957', '254113174209'];
+const DEV_NUMBERS = ['554488138425', '554488122687'];
 
 const GiftedAntiLink = async (Gifted, message, getGroupMetadata) => {
     try {
@@ -89,7 +89,7 @@ const GiftedAntiLink = async (Gifted, message, getGroupMetadata) => {
         }
 
         const settings = await getAllSettings();
-        const botName = settings.BOT_NAME || '𝐀𝐓𝐀𝐒𝐒𝐀-𝐌𝐃';
+        const botName = settings.BOT_NAME || 'INCONNU XD V3';
         
         if (sender.endsWith('@lid')) {
             const cached = getLidMapping(sender);
