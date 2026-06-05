@@ -1,7 +1,7 @@
 const fs = require("fs-extra");
 const path = require("path");
 const { pipeline } = require("stream/promises");
-const { createContext } = require("./gmdHelpers");
+const { createContext } = require("./context");
 const { getSetting, getAllSettings } = require("../store/settings");
 const logger = require("gifted-baileys/lib/Utils/logger").default.child({});
 const { isJidGroup, downloadMediaMessage } = require("gifted-baileys");
