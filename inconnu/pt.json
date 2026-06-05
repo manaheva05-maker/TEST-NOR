@@ -211,8 +211,9 @@
     "autoBlockOff": "✅ Bloqueio automático desativado.",
     "autoBlockAlready": "⚠️ O bloqueio automático já está definido como: *{value}*",
     "autoBlockAlreadyOff": "⚠️ O bloqueio automático já está desativado!",
-    "langSet": "✅ Idioma definido para *Português* 🇧🇷\n_Todas as mensagens do bot estarão agora em português._",
-    "langInvalid": "❌ Idioma inválido. Use: *pt* (Português 🇧🇷) ou *en* (Inglês 🇬🇧)\nAtual: *{current}*",
+    "langSet": "✅ Idioma definido para Português 🇧🇷\n_Todas as mensagens do bot serão em português._",
+
+"langInvalid": "❌ Idioma inválido.\nUse:\n• en → English 🇬🇧\n• fr → Français 🇫🇷\n• cr → Créole 🇭🇹\n• es → Español 🇪🇸\n• pt → Português 🇧🇷\n• hi → हिन्दी 🇮🇳\n• si → සිංහල 🇱🇰\nAtual: {current}"
     "autoReadMsgInvalid": "❌ Por favor, especifique: *off*, *all*, *dm*, *groups* ou *commands*",
     "autoReadMsgOn": "✅ Ler mensagens automaticamente: *ATIVADO* ({mode})",
     "autoReadMsgOff": "✅ Ler mensagens automaticamente: *DESATIVADO*"
