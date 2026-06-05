@@ -36,7 +36,7 @@ const DEFAULT_SETTINGS = {
     BOT_NAME: "INCONNU XD V3",
     FOOTER: "INCONNU BOY",
     CAPTION: "INCONNU XD V3",
-    BOT_PIC: "https://files.gifted.co.ke/image/u90mimage.jpg",
+    BOT_PIC: "https://files.catbox.moe/utrnuv.png",
     VERSION: packageJson.version || "3.0.0",
     MODE: config.MODE || "public",
     WARN_COUNT: "3",
