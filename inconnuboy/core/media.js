@@ -7,7 +7,7 @@ const { Readable } = require('stream');
 const FormData = require('form-data');
 const axios = require('axios');
 const { Blob } = require('buffer');
-const { getLidMapping } = require("../socket/groupCache");
+const { getLidMapping } = require("../socket/cache");
 
 function getUserName(jid) {
     return jid.split("@")[0];
