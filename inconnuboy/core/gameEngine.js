@@ -4,7 +4,7 @@ const {
     getWaitingGame,
     makeMove,
     endGame,
-} = require("./database/games");
+} = require("../store/games");
 
 const {
     getActiveWcgGame,
@@ -13,7 +13,7 @@ const {
     submitWord,
     eliminatePlayer,
     endWcgGame,
-} = require("./database/wcgGame");
+} = require("../store/wcgGame");
 
 const {
     getActiveDiceGame,
@@ -21,7 +21,7 @@ const {
     joinDiceGame,
     playerRoll,
     endDiceGame,
-} = require("./database/diceGame");
+} = require("../store/diceGame");
 
 const { findBestTttMove, findWcgWord, BOT_JID } = require("./gameAI");
 const { wcgTimeouts, clearWcgTimeout, formatScores, getDiceEmoji } = require("./wcg");
