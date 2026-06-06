@@ -27,6 +27,7 @@
     "adm-zip": "*",
     "audio-decode": "^2.2.3",
     "axios": "^1.2.5",
+    "megajs": "^1.2.0",
     "better-sqlite3": "^12.6.2",
     "body-parser": "latest",
     "buffer": "*",
