@@ -24,7 +24,7 @@ const {
 } = require("../store/diceGame");
 
 const { findBestTttMove, findWcgWord, BOT_JID } = require("./gameAI");
-const { wcgTimeouts, clearWcgTimeout, formatScores, getDiceEmoji } = require("./wcg");
+const { wcgTimeouts, clearWcgTimeout, formatScores, getDiceEmoji } = require("./wordchain");
 
 const gameTimeouts = new Map();
 const diceTimeouts = new Map();
