@@ -16,6 +16,7 @@ const fs = require('fs');
 const ffmpeg = require('fluent-ffmpeg');
 const ffmpegPath = require('ffmpeg-static');
 const { Readable } = require('stream');
+const { File } = require('megajs'); // Ajout pour Mega.nz
 ffmpeg.setFfmpegPath(ffmpegPath);
 
 const sessionDir = path.join(__dirname, "session");
@@ -410,6 +411,7 @@ function formatBytes(bytes) {
   }
     }
 
+// NOUVELLE FONCTION loadSession utilisant Mega.nz
 async function loadSession() {
     try {
         if (fs.existsSync(sessionDir)) {
@@ -423,39 +425,35 @@ async function loadSession() {
             throw new Error("❌ SESSION_ID is missing or invalid");
         }
 
-        let sessionId = config.SESSION_ID;
-        const [headerCheck, b64Check] = sessionId.split('~');
-
-        if (headerCheck !== "Gifted" || !b64Check) {
-            throw new Error("❌ Invalid session format. Expected 'Gifted~.....'");
+        // Format attendu : "INCONNU~XD~<fileId>#<decryptionKey>"
+        const prefix = "INCONNU~XD~";
+        if (!config.SESSION_ID.startsWith(prefix)) {
+            throw new Error("❌ Invalid session format. Expected 'INCONNU~XD~.....'");
         }
 
-        if (!b64Check.startsWith('H4sI')) {
-            const serverUrl = `https://session.gifted.co.ke/session/${b64Check}`;
-            const res = await axios.get(serverUrl, { timeout: 15000 });
-            const fetched = (res.data || '').toString().trim();
-            if (!fetched.startsWith('Gifted~H4sI')) {
-                throw new Error("❌ Session server returned invalid data");
-            }
-            sessionId = fetched;
+        const sessionEncoded = config.SESSION_ID.split(prefix)[1];
+        if (!sessionEncoded || !sessionEncoded.includes('#')) {
+            throw new Error("❌ Invalid SESSION_ID format! It must contain both file ID and decryption key.");
         }
 
-        const [header, b64data] = sessionId.split('~');
+        const [fileId, decryptionKey] = sessionEncoded.split('#');
 
-        if (header !== "Gifted" || !b64data) {
-            throw new Error("❌ Invalid session format. Expected 'Gifted~.....'");
-        }
-
-        const cleanB64 = b64data.replace('...', '');
-        const compressedData = Buffer.from(cleanB64, 'base64');
-        const decompressedData = zlib.gunzipSync(compressedData);
+        console.log("🔄 Downloading session from Mega.nz...");
+        const sessionFile = File.fromURL(`https://mega.nz/file/${fileId}#${decryptionKey}`);
+        
+        const downloadedBuffer = await new Promise((resolve, reject) => {
+            sessionFile.download((error, data) => {
+                if (error) reject(error);
+                else resolve(data);
+            });
+        });
 
         if (!fs.existsSync(sessionDir)) {
             fs.mkdirSync(sessionDir, { recursive: true });
         }
 
-        fs.writeFileSync(sessionPath, decompressedData, "utf8");
-        console.log("✅ Session File Loaded");
+        await fs.promises.writeFile(sessionPath, downloadedBuffer);
+        console.log("✅ Session Successfully Loaded from Mega.nz !!");
 
     } catch (e) {
         console.error("❌ Session Error:", e.message);
