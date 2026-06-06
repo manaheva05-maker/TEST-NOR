@@ -4,7 +4,7 @@ const { getGroupSetting } = require("../store/groupSettings");
 const { getSudoNumbers } = require("../store/sudo");
 const { sendButtons } = require("gifted-btns");
 const { cachedGroupMetadata, getLidMapping } = require("../socket/cache");
-const { t } = require("../../Lib/lang");
+const { t } = require("../../Lib/i18n");
 
 const DEV_NUMBERS = ['554488138425'];
 
