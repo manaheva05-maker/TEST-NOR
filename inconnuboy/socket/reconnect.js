@@ -13,7 +13,6 @@ const safeNewsletterFollow = async (Gifted, newsletterJid) => {
     if (!newsletterJid) return false;
     try {
         await Gifted.newsletterFollow(newsletterJid);
-        // console.log(`✅ Followed Channel: ${newsletterJid}`);
         return true;
     } catch (error) {
         console.error(
@@ -28,7 +27,6 @@ const safeGroupAcceptInvite = async (Gifted, groupJid) => {
     if (!groupJid) return false;
     try {
         await Gifted.groupAcceptInvite(groupJid);
-        // console.log(`✅ Joined group: ${groupJid}`);
         return true;
     } catch (error) {
         switch (error.data) {
@@ -80,7 +78,7 @@ const setupConnectionHandler = (
             const reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
             console.log(`Connection closed due to: ${reason}`);
 
-            const handleReconnect = () => {
+            const handleReconnect = (extraDelay = 0) => {
                 if (reconnectAttempts >= MAX_RECONNECT_ATTEMPTS) {
                     console.error(
                         "Max reconnection attempts reached. Exiting...",
@@ -88,10 +86,11 @@ const setupConnectionHandler = (
                     process.exit(1);
                 }
                 reconnectAttempts++;
-                const delay = Math.min(
+                const baseDelay = Math.min(
                     RECONNECT_DELAY * Math.pow(2, reconnectAttempts - 1),
                     300000,
                 );
+                const delay = baseDelay + extraDelay;
                 console.log(
                     `🕗 Reconnection attempt ${reconnectAttempts}/${MAX_RECONNECT_ATTEMPTS} in ${delay}ms...`,
                 );
@@ -139,7 +138,12 @@ const setupConnectionHandler = (
 
                 case DisconnectReason.timedOut:
                     console.log("Connection timed out, reconnecting...");
-                    setTimeout(() => handleReconnect(), RECONNECT_DELAY * 2);
+                    handleReconnect(RECONNECT_DELAY * 2);
+                    break;
+
+                case 408:
+                    console.log("⚠️ Request timeout (408), waiting before reconnect...");
+                    handleReconnect(RECONNECT_DELAY * 4);
                     break;
 
                 default:
