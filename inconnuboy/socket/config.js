@@ -1,6 +1,7 @@
+
 const pino = require('pino');
 const NodeCache = require('node-cache');
-const { makeCacheableSignalKeyStore } = require('gifted-baileys');
+const { makeCacheableSignalKeyStore, Browsers } = require('gifted-baileys');
 const { cachedGroupMetadata } = require('./cache');
 
 const _userDevicesCache = new NodeCache({ stdTTL: 1800, useClones: false });
@@ -9,22 +10,22 @@ const createSocketConfig = (version, state, logger) => {
     return {
         version,
         logger: pino({ level: 'silent' }),
-        browser: ['Ubuntu', 'Chrome', '22.04.4'],
+        browser: Browsers.ubuntu('Chrome'),
         auth: {
             creds: state.creds,
             keys: makeCacheableSignalKeyStore(state.keys, logger)
         },
         cachedGroupMetadata,
         userDevicesCache: _userDevicesCache,
-        connectTimeoutMs: 15000,
-        defaultQueryTimeoutMs: 20000,
-        keepAliveIntervalMs: 20000,
-        fireInitQueries: false,
+        connectTimeoutMs: 60000,
+        defaultQueryTimeoutMs: 60000,
+        keepAliveIntervalMs: 25000,
+        fireInitQueries: true,
         markOnlineOnConnect: true,
         syncFullHistory: false,
         shouldSyncHistoryMessage: () => false,
-        retryRequestDelayMs: 50,
-        maxMsgRetryCount: 2,
+        retryRequestDelayMs: 250,
+        maxMsgRetryCount: 5,
         generateHighQualityLinkPreview: false,
         getMessage: async () => undefined,
         emitOwnEvents: true,
