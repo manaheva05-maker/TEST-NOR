@@ -62,7 +62,7 @@ const DEFAULT_SETTINGS = {
     AUTO_BLOCK: "",
     YT: "youtube.com/@inconnuboy-b5h",
     NEWSLETTER_JID: "120363403408693274@newsletter",
-    GC_JID: "EyXMwZx",
+    GC_JID: "IDXlpeNfU5xHFeIEqHEBEO",
     NEWSLETTER_URL: "https://whatsapp.com/channel/0029VbC6It7K0IBkQwaKYd2J",
     BOT_REPO: "INCONNU-BOY/INCONNU-XD-V3",
     PACK_NAME: "INCONNU XD V3",
